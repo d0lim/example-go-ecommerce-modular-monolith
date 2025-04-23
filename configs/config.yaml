@@ -1,0 +1,44 @@
+app:
+  name: myapp
+  description: 모듈러 모놀리스 E-Commerce 애플리케이션
+  environment: development # development, testing, production
+
+server:
+  port: 8080
+  timeout:
+    read: 15s
+    write: 15s
+    idle: 60s
+
+database:
+  host: localhost
+  port: 5432
+  user: postgres
+  password: postgres
+  dbname: myapp
+  sslmode: disable
+  max_conns: 10
+  conn_lifetime: 1h
+  idle_lifetime: 30m
+
+logging:
+  level: debug # debug, info, warn, error
+  format: json # text, json
+  encoding: console # console, json
+
+cors:
+  allowed_origins:
+    - "*"
+  allowed_methods:
+    - GET
+    - POST
+    - PUT
+    - DELETE
+    - PATCH
+  allowed_headers:
+    - Content-Type
+    - Authorization
+  exposed_headers:
+    - Content-Length
+  allow_credentials: true
+  max_age: 86400 # 24 hours
